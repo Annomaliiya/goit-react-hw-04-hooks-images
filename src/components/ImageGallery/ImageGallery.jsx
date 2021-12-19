@@ -7,6 +7,7 @@ import Modal from "../Modal";
 import { picturesApi } from "../../shared/services/fetchApi";
 
 import s from "./ImageGallery.module.css";
+import LargeImageInfo from "../LargeImageInfo";
 
 const initialState = {
   items: [],
@@ -99,7 +100,9 @@ const ImageGallery = ({ queryProp }) => {
         <Button onClick={loadMore} title="Load more"></Button>
       )}
       {modalOpen && (
-        <Modal closeModal={closeModal} picture={largeImageURL} tags={tags} />
+        <Modal closeModal={closeModal}>
+          <LargeImageInfo url={largeImageURL} tags={tags} />
+        </Modal>
       )}
     </div>
   );
