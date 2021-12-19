@@ -21,7 +21,6 @@ const initialState = {
 const ImageGallery = ({ queryProp }) => {
   const [state, setState] = useState(initialState);
   const [page, setPage] = useState(1);
-  useEffect(() => {}, []);
 
   useEffect(() => {
     if (!queryProp) return;
@@ -92,7 +91,6 @@ const ImageGallery = ({ queryProp }) => {
 
   return (
     <div>
-      {console.log("render")}
       {error && <p>Impossible to load the pictures!</p>}
       {!error && <ul className={s.list}>{elements}</ul>}
       {isLoading && <Loader />}
