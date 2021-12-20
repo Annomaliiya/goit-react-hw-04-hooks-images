@@ -63,7 +63,7 @@ const ImageGallery = ({ queryProp }) => {
     setState({ ...state, isLoading: true });
   };
 
-  const showModal = useCallback(((id) => {
+  const showModal = useCallback((id) => {
     setState((prevState) => {
       const { items } = prevState;
       const { largeImageURL, tags } = items.find((item) => item.id === id);
@@ -73,8 +73,9 @@ const ImageGallery = ({ queryProp }) => {
         largeImageURL: largeImageURL,
         tags: tags,
       };
-    }, []);
-    
+    });
+  }, []);
+
   const closeModal = (e) => {
     setState({ ...state, modalOpen: false });
   };
