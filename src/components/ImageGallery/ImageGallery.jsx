@@ -60,23 +60,23 @@ const ImageGallery = ({ queryProp }) => {
     setPage((prevState) => {
       return prevState + 1;
     });
-    state.isLoading = true;
-    setState({ ...state });
+    setState({ ...state, isLoading: true });
   };
 
   const showModal = (id) => {
     setState((prevState) => {
       const { items } = prevState;
       const { largeImageURL, tags } = items.find((item) => item.id === id);
-      prevState.modalOpen = true;
-      prevState.largeImageURL = largeImageURL;
-      prevState.tags = tags;
-      return { ...prevState };
+      return {
+        ...prevState,
+        isLoading: true,
+        largeImageURL: largeImageURL,
+        tags: tags,
+      };
     });
   };
   const closeModal = (e) => {
-    state.modalOpen = false;
-    setState({ ...state });
+    setState({ ...state, modalOpen: false });
   };
   const { items, error, isLoading, finish, modalOpen, largeImageURL, tags } =
     state;
