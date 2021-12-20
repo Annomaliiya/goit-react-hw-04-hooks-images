@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import ImageGalleryItem from "./ImageGalleryItem";
 import Button from "../Button";
@@ -63,7 +63,7 @@ const ImageGallery = ({ queryProp }) => {
     setState({ ...state, isLoading: true });
   };
 
-  const showModal = (id) => {
+  const showModal = useCallback(((id) => {
     setState((prevState) => {
       const { items } = prevState;
       const { largeImageURL, tags } = items.find((item) => item.id === id);
@@ -73,8 +73,8 @@ const ImageGallery = ({ queryProp }) => {
         largeImageURL: largeImageURL,
         tags: tags,
       };
-    });
-  };
+    }, []);
+    
   const closeModal = (e) => {
     setState({ ...state, modalOpen: false });
   };

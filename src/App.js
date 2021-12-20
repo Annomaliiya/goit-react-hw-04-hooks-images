@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 import './App.css';
 import SearchBar from './components/SearchBar';
@@ -9,9 +9,9 @@ import ImageGallery from './components/ImageGallery';
 const App = () => {
   const [query, setQuery] = useState("");
 
-  const changeQuery = (query) => {
+  const changeQuery = useCallback((query) => {
     setQuery(query)
-  }
+  }, [])
 
 
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import PropTypes from "prop-types";
 import s from "./SearchBar.module.css";
 import { ReactComponent as SearchIcon } from "../../icons/icon-search.svg";
@@ -38,7 +38,7 @@ const SearchBar = ({ onSubmit }) => {
   );
 };
 
-export default SearchBar;
+export default memo(SearchBar);
 
 SearchBar.propTypes = {
   changeQuery: PropTypes.func,
